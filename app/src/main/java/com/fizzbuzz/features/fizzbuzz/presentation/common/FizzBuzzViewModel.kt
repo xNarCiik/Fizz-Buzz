@@ -59,7 +59,7 @@ class FizzBuzzViewModel @Inject constructor(
             hasError = checkNumberValue(secondNumber, _secondNumberError) || hasError
             hasError = checkTextValue(firstWord, _firstWordError) || hasError
             hasError = checkTextValue(secondWord, _secondWordError) || hasError
-            hasError = checkNumberValue(limit, _limitError) || hasError
+            hasError = checkNumberValue(limit, _limitError, 1000000) || hasError
 
             if (!hasError) {
                 // Calculated only if we dont have error. In IO thread to avoid long calculation problem
@@ -95,9 +95,9 @@ class FizzBuzzViewModel @Inject constructor(
 
     // Post error if value is null or <= 0
     // Return true if have error
-    private fun checkNumberValue(value: Int?, error: MutableStateFlow<String>): Boolean {
+    private fun checkNumberValue(value: Int?, error: MutableStateFlow<String>, maxValue: Int? = null): Boolean {
         return when {
-            value == null || value <= 0 -> {
+            value == null || value <= 0 || (maxValue != null && maxValue < value) -> {
                 error.value = errorString
                 true
             }
