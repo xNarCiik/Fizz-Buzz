@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Fizz-Buzz</string>
+    <string name="validate">Valider</string>
+    <string name="form">Formulaire</string>
+    <string name="first_number">Entier n°1</string>
+    <string name="second_number">Entier n°2</string>
+    <string name="first_word">Mot n°1</string>
+    <string name="second_word">Mot n°2</string>
+    <string name="limit">Limite</string>
+    <string name="form_error">Ce champ contient une erreur.</string>
+    <string name="result">Résultat</string>
+    <string name="back">Retour</string>
+</resources>
